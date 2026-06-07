@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skincare Intelligence — Complete Knowledge Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f5f0e8;--warm-white:#faf8f4;--blush:#e8c4b8;--charcoal:#2d2520;--warm-gray:#7a6e68;--light-gray:#e2dbd4;--gold:#c9a96e;--sage:#7a9e7e;--forest:#3d5c41;--terracotta:#b5604a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Mono',monospace;background:var(--cream);color:#1a1410;font-size:12px;line-height:1.7;}
+header{background:var(--charcoal);padding:52px 56px 40px;position:relative;overflow:hidden;}
+.hwm{position:absolute;right:-10px;top:-30px;font-family:'Cormorant Garamond',serif;font-size:240px;font-weight:300;color:rgba(255,255,255,0.03);pointer-events:none;user-select:none;line-height:1;}
+.heye{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+header h1{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:#faf8f4;line-height:1;letter-spacing:-2px;}
+header h1 em{font-style:italic;color:var(--blush);}
+.hmeta{margin-top:18px;font-size:10px;color:var(--warm-gray);letter-spacing:1px;line-height:2;}
+.hcounts{display:flex;gap:36px;margin-top:28px;}
+.hc{border-left:2px solid var(--gold);padding-left:16px;}
+.hcn{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--gold);line-height:1;}
+.hcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-gray);margin-top:2px;}
+.sechead{background:var(--charcoal);padding:26px 56px;display:flex;align-items:center;gap:20px;}
+.sechead h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#faf8f4;letter-spacing:-1px;font-style:italic;}
+.secnum{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;white-space:nowrap;}
+.secline{flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.wrapper{padding:0 56px;background:var(--warm-white);}
+.wrapper2{padding:0 56px;background:var(--cream);}
+.block{border-bottom:1px solid var(--light-gray);padding:32px 0;display:grid;grid-template-columns:260px 1fr;gap:40px;}
+.block:last-child{border-bottom:none;}
+.bname{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--charcoal);line-height:1.2;margin-bottom:6px;}
+.bcat{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.badges{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+.badge{display:inline-block;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:2px;width:fit-content;}
+.psafe{background:#e8f4e8;color:#2d6e2d;border:1px solid #b0d8b0;}
+.pavoid{background:#fde8e8;color:#b03030;border:1px solid #e0b0b0;}
+.pconsult{background:#fff4e0;color:#906000;border:1px solid #e8d090;}
+.evhigh{background:#e8f0f8;color:#304880;border:1px solid #b0c8e0;}
+.evmod{background:#f0f0f0;color:#606060;border:1px solid #d0d0d0;}
+.bcom{background:var(--cream);color:var(--warm-gray);border:1px solid var(--light-gray);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.field{padding:9px 16px 9px 0;border-bottom:1px solid rgba(0,0,0,0.04);}
+.field:nth-child(even){padding-left:16px;border-left:1px solid rgba(0,0,0,0.04);}
+.flabel{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--warm-gray);margin-bottom:3px;}
+.fval{font-size:11px;color:var(--charcoal);line-height:1.5;}
+.fval.red{color:var(--terracotta);}
+.fval.muted{color:var(--warm-gray);font-style:italic;}
+.note{margin-top:10px;padding:10px 14px;background:var(--cream);border-left:3px solid var(--gold);font-size:11px;color:var(--warm-gray);font-style:italic;line-height:1.6;}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--charcoal);}
+.stars{color:var(--gold);font-size:12px;letter-spacing:1px;}
+.price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--forest);font-weight:600;}
+footer{background:var(--charcoal);padding:30px 56px;display:flex;justify-content:space-between;align-items:center;}
+.flabel2{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--warm-gray);}
+.ftitle{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--blush);}
+@media(max-width:800px){header{padding:32px 20px 24px;}header h1{font-size:40px;}.sechead{padding:18px 20px;}.wrapper,.wrapper2{padding:0 20px;}.block{grid-template-columns:1fr;gap:16px;}.grid2{grid-template-columns:1fr;}.field:nth-child(even){border-left:none;padding-left:0;}footer{padding:24px 20px;flex-direction:column;gap:12px;text-align:center;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwm">SKIN</div>
+  <div class="heye">— Cosmetics Intelligence · Complete Knowledge Base</div>
+  <h1>Skincare <em>Expert</em><br>Reference</h1>
+  <div class="hmeta">Complete ingredient encyclopedia &amp; product database for the AI-powered Cosmetics Ingredient Expert chatbot (Botpress)<br>All content visible on a single page — no clicks, tabs, or interactions required</div>
+  <div class="hcounts">
+    <div class="hc"><div class="hcn">26</div><div class="hcl">Ingredients</div></div>
+    <div class="hc"><div class="hcn">31</div><div class="hcl">Products</div></div>
+    <div class="hc"><div class="hcn">12</div><div class="hcl">Fields Each</div></div>
+  </div>
+</header>
+
+<div class="sechead">
+  <span class="secnum">01 ——</span>
+  <h2>Ingredient Encyclopedia</h2>
+  <div class="secline"></div>
+</div>
+<div class="wrapper">
+
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Niacinamide</div>
+      <div class="bcat">Vitamin · Barrier Support</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Brightening / Barrier Support</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Combination, Sensitive, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Reduces pores, controls oil, fades hyperpigmentation, strengthens skin barrier</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Mild flushing at >5% in sensitive skin</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Synergistic with zinc; do NOT mix with pure Vitamin C at same step — wait 10–15 mins</div></div>
+      </div>
+      <div class="note">One of the most well-studied skincare actives. 5% most common; 10% for advanced users.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Retinol</div>
+      <div class="bcat">Retinoid · Anti-aging</div>
+      <div class="badges">
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 1/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Anti-aging / Cell Turnover</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Normal, Aging, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Reduces fine lines, boosts collagen, fades dark spots, treats acne</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">Above 5.5 ideal</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Dryness, peeling, redness, photosensitivity (initial weeks)</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT combine with AHAs/BHAs same step; avoid benzoyl peroxide; pair with barrier support</div></div>
+      </div>
+      <div class="note">Start 2–3x/week; introduce slowly. Retinaldehyde is a stronger precursor. Always use SPF next morning.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Hyaluronic Acid</div>
+      <div class="bcat">Humectant · Hydration</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Hydration</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All skin types, especially Dry and Dehydrated</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Deep and surface hydration, plumps skin, reduces appearance of fine lines</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–8.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Can dehydrate in dry climates without moisturizer on top</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs well with ceramides, glycerin, niacinamide</div></div>
+      </div>
+      <div class="note">Look for multi-weight HA for layered hydration. Apply to damp skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Salicylic Acid (BHA)</div>
+      <div class="bcat">Beta Hydroxy Acid · Exfoliation</div>
+      <div class="badges">
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Exfoliation / Acne Treatment</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Acne-prone, Combination</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Unclogs pores, reduces blackheads, anti-inflammatory, treats acne</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">3.0–4.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Dryness, over-exfoliation, stinging on broken skin</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT pair with retinol or strong AHAs in same step</div></div>
+      </div>
+      <div class="note">Oil-soluble — penetrates sebum in pores. 0.5–2% OTC range. Paula's Choice 2% BHA is the benchmark.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Glycolic Acid (AHA)</div>
+      <div class="bcat">Alpha Hydroxy Acid · Exfoliation</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Exfoliation / Brightening</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Normal, Oily, Mature, Hyperpigmentation-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Resurfaces skin texture, fades PIH, brightens dull skin, boosts collagen</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">3.0–4.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Stinging, redness, photosensitivity — always use SPF</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT mix with retinol same step; pair with SPF next morning</div></div>
+      </div>
+      <div class="note">Smallest AHA molecule — deepest penetration. 5–10% for OTC; 20–70% for professional peels.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Lactic Acid (AHA)</div>
+      <div class="bcat">Alpha Hydroxy Acid · Gentle Exfoliation</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Exfoliation / Hydration</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Sensitive, Dry, Mature, Beginners to AHAs</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Gentle exfoliation, hydrating, brightening, improves texture</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">3.0–4.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Mild stinging; gentler than glycolic acid</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Good starter AHA; combine with ceramides post-use; avoid vitamin C same step</div></div>
+      </div>
+      <div class="note">Larger molecule than glycolic — milder. Also acts as a humectant.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Vitamin C (L-Ascorbic Acid)</div>
+      <div class="bcat">Antioxidant · Brightening</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Brightening / Antioxidant Protection</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Dull, Hyperpigmentation-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Brightens skin, fades dark spots, boosts collagen, protects from UV damage</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">Below 3.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Instability at wrong pH; tingling on sensitive skin; oxidizes quickly</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Avoid with niacinamide same step; pair with Vitamin E + Ferulic Acid for synergy</div></div>
+      </div>
+      <div class="note">Highly unstable — look for L-ascorbic acid or stable derivatives. Use AM only.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Ceramides</div>
+      <div class="bcat">Lipid · Barrier Repair</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Barrier Repair / Moisture Retention</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Dry, Sensitive, Eczema-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Restores skin barrier, retains moisture, reduces sensitivity</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–6.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very rare; generally extremely well tolerated</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs with cholesterol and fatty acids for complete barrier repair (3:1:1 ratio ideal)</div></div>
+      </div>
+      <div class="note">Ceramide 1, 3, 6-II are most effective. CeraVe popularized ceramides in mass-market skincare.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Azelaic Acid</div>
+      <div class="bcat">Dicarboxylic Acid · Brightening</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Brightening / Acne / Anti-inflammatory</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Sensitive, Acne-prone, Rosacea, Hyperpigmentation</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Fades hyperpigmentation, treats acne and rosacea, anti-inflammatory</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–5.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Mild tingling; itching on sensitive skin (usually temporary)</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Can combine with niacinamide; compatible with most actives; gentle for daily use</div></div>
+      </div>
+      <div class="note">Available OTC 10–15%; prescription at 15–20% (Finacea). Safe during pregnancy.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Benzoyl Peroxide</div>
+      <div class="bcat">Antibacterial · Acne Treatment</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Antibacterial / Acne Treatment</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Kills acne-causing bacteria, reduces inflammatory acne, unclogs pores</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">Stable across range</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Dryness, peeling, bleaches fabric — use carefully</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT combine with retinol; use separate from vitamin C</div></div>
+      </div>
+      <div class="note">2.5% as effective as 10% with fewer side effects. Rinse-off formulas for sensitive skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Peptides</div>
+      <div class="bcat">Amino Acid Chains · Anti-aging</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Anti-aging / Barrier Repair</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Mature, Dry, All types seeking anti-aging</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Signals skin to produce collagen, firms skin, reduces fine lines, repairs barrier</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–8.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very low risk; very well tolerated</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT mix with AHA/BHA (can degrade peptides); pair with niacinamide and HA</div></div>
+      </div>
+      <div class="note">Types: signal peptides (Matrixyl), carrier peptides (copper), neurotransmitter-inhibiting (Argireline).</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Tranexamic Acid</div>
+      <div class="bcat">Synthetic Amino Acid · Brightening</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Brightening / Depigmentation</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Sensitive, Hyperpigmentation-prone, All types</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Fades stubborn melasma and PIH, brightens skin, very gentle</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Rare; generally well tolerated; occasional mild irritation</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Can combine with niacinamide, azelaic acid, vitamin C</div></div>
+      </div>
+      <div class="note">Rising star for hyperpigmentation; 2–5% OTC; comparable to hydroquinone without the risks.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Alpha Arbutin</div>
+      <div class="bcat">Brightening Agent · Depigmentation</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Brightening / Depigmentation</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Hyperpigmentation-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Inhibits melanin production, fades dark spots, safer alternative to hydroquinone</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Low risk; mild irritation in rare cases</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs with niacinamide and vitamin C for enhanced brightening</div></div>
+      </div>
+      <div class="note">Derived from bearberry plant. Converts to hydroquinone slowly — safer profile.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Centella Asiatica (Cica)</div>
+      <div class="bcat">Plant Extract · Soothing</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Soothing / Healing / Anti-aging</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Sensitive, Acne-prone, Post-procedure, Rosacea</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Calms inflammation, promotes wound healing, strengthens barrier, anti-aging</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very rare; may cause contact allergy in sensitive individuals</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs well with ceramides, hyaluronic acid, niacinamide</div></div>
+      </div>
+      <div class="note">Key actives: madecassoside, asiaticoside, asiatic acid. Cornerstone of Korean (K-beauty) skincare.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Bakuchiol</div>
+      <div class="bcat">Plant-derived · Retinol Alternative</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Anti-aging / Acne (Retinol Alternative)</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Sensitive, Pregnant, All types avoiding retinol</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Mimics retinol (boosts collagen), gentler; treats acne, fades dark spots</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very well tolerated; rare mild irritation</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Can be combined with retinol to boost effects; pairs with rosehip oil, vitamin C</div></div>
+      </div>
+      <div class="note">From Psoralea corylifolia seeds. Growing evidence base — best retinol alternative for pregnancy.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Squalane</div>
+      <div class="bcat">Lipid · Emollient</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 1/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Moisture / Barrier / Emollient</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types, including Oily (non-greasy)</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Lightweight moisturizer, non-comedogenic, balances oil, anti-aging</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">Stable across all pH</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very well tolerated; rare allergy</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Excellent vehicle for active delivery; pairs with all actives</div></div>
+      </div>
+      <div class="note">Plant-derived (olive, sugarcane) or shark-derived. Stabilized form of squalene.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Glycerin</div>
+      <div class="bcat">Humectant · Hydration</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Hydration / Barrier Maintenance</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Dry and Dehydrated</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Draws moisture to skin, maintains barrier, softens skin</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–8.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Rare; very well tolerated by all skin types</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs with all ingredients; foundational humectant in most formulas</div></div>
+      </div>
+      <div class="note">Simple, effective, inexpensive. Concentration 1–10% in most products. Universal humectant base.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Ferulic Acid</div>
+      <div class="bcat">Antioxidant · Stabilizer</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Antioxidant / Vitamin C Stabilizer</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Mature and UV-exposed</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Stabilizes vitamin C and E, doubles antioxidant protection, anti-aging</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">Below 3.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Mild irritation in sensitive skin</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Essential pairing with vitamin C + E; boosts SPF protection synergistically</div></div>
+      </div>
+      <div class="note">Does not work effectively alone — usually formulated with C+E (e.g., SkinCeuticals CE Ferulic).</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">SPF / Sunscreen</div>
+      <div class="bcat">UV Filter · Photoprotection</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes (mineral preferred)</span>
+        <span class="badge evhigh">High Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">UV Protection / Photoprotection</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types — ESSENTIAL for everyone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Prevents UV damage, aging, skin cancer, hyperpigmentation worsening</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">N/A — final step in AM routine</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Some chemical filters cause irritation; mineral (zinc oxide, titanium dioxide) gentler</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Apply last in AM routine; reapply every 2 hrs; neutralizes benefits of all actives if skipped</div></div>
+      </div>
+      <div class="note">Mineral: zinc oxide, titanium dioxide. Chemical: avobenzone, tinosorb. Mineral preferred in pregnancy.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Kojic Acid</div>
+      <div class="bcat">Brightening Agent · Depigmentation</div>
+      <div class="badges">
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 1/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Depigmentation / Brightening</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Hyperpigmentation-prone, Mature</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Inhibits melanin production, fades dark spots and melasma</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">3.5–4.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Skin irritation; potential contact dermatitis; photosensitizing</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Can boost with vitamin C; do NOT mix with strong AHAs</div></div>
+      </div>
+      <div class="note">Derived from fungi; unstable — look for stable formulations. Limited OTC percentage available.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Snail Secretion Filtrate</div>
+      <div class="bcat">Biological Extract · Repair</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Repair / Hydration / Anti-aging</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; Acne-prone, Scarring, Dry</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Hydrates, repairs, fades scarring and pigmentation, anti-aging</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–6.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Rare; some may react to animal-derived ingredient</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Combines well with hyaluronic acid, niacinamide</div></div>
+      </div>
+      <div class="note">Active components: glycoproteins, enzymes, hyaluronic acid, copper peptides, zinc.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Mandelic Acid (AHA)</div>
+      <div class="bcat">Alpha Hydroxy Acid · Gentle</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Exfoliation / Brightening</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Sensitive and Darker skin tones</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Exfoliates, brightens, anti-bacterial; gentlest AHA for darker skin tones (less PIH risk)</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">3.0–4.5</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Mild; slight photosensitivity; gentler than glycolic</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Compatible with niacinamide; avoid AHA stacking for beginners</div></div>
+      </div>
+      <div class="note">Largest AHA molecule — slowest penetration, gentlest. Best starter acid for darker skin tones.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Tea Tree Oil</div>
+      <div class="bcat">Essential Oil · Antimicrobial</div>
+      <div class="badges">
+        <span class="badge pconsult">⚠ Consult</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 2/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Antimicrobial / Acne</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Antimicrobial, anti-inflammatory, reduces acne</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–6.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Irritation, contact dermatitis at high concentrations; must always be diluted</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Do NOT use undiluted; pairs with aloe vera for soothing; caution with other actives</div></div>
+      </div>
+      <div class="note">1–5% is effective OTC range. Avoid eye area. Never apply undiluted directly to skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Zinc PCA</div>
+      <div class="bcat">Mineral · Oil Control</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Oil Control / Acne / Antimicrobial</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">Oily, Acne-prone, Combination</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Reduces sebum, antimicrobial, anti-inflammatory</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Rarely causes issues; very well tolerated</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs with niacinamide for enhanced oil control</div></div>
+      </div>
+      <div class="note">Zinc salt of pyrrolidone carboxylic acid — sebum regulating and healing properties.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Resveratrol</div>
+      <div class="bcat">Antioxidant · Anti-aging</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Antioxidant / Anti-aging / Protection</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Mature and Urban skin</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Powerful antioxidant, anti-inflammatory, anti-aging, environmental protection</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">5.0–6.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Rarely causes irritation; very well tolerated</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Pairs with ferulic acid and vitamin E for enhanced antioxidant protection</div></div>
+      </div>
+      <div class="note">Found in grapes and berries; unstable — choose stable formulations. Best used in PM routine.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Polyglutamic Acid</div>
+      <div class="bcat">Polypeptide · Super Humectant</div>
+      <div class="badges">
+        <span class="badge psafe">✓ Yes</span>
+        <span class="badge evmod">Moderate Evidence</span>
+        <span class="badge bcom">Comedogenic: 0/5</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Function</div><div class="fval">Hydration / TEWL Reduction</div></div>
+        <div class="field"><div class="flabel">Skin Types</div><div class="fval">All types; especially Dry and Dehydrated</div></div>
+        <div class="field"><div class="flabel">Primary Benefits</div><div class="fval">Holds 4–5x more water than HA, plumps, reduces transepidermal water loss</div></div>
+        <div class="field"><div class="flabel">pH Range</div><div class="fval">4.0–7.0</div></div>
+        <div class="field"><div class="flabel">Side Effects / Cautions</div><div class="fval red">Very well tolerated; no known issues</div></div>
+        <div class="field"><div class="flabel">Key Interactions</div><div class="fval">Can replace or layer with hyaluronic acid; compatible with all actives</div></div>
+      </div>
+      <div class="note">Derived from fermented soybeans (natto). Forms a moisture-locking film over the HA hydration layer.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sechead">
+  <span class="secnum">02 ——</span>
+  <h2>Product Database</h2>
+  <div class="secline"></div>
+</div>
+<div class="wrapper2">
+
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">The Ordinary Niacinamide 10% + Zinc 1%</div>
+      <div class="bcat">The Ordinary · Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.4 <span class="stars">★★★★</span></div>
+        <div class="price">$6</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Niacinamide 10%, Zinc PCA 1%</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Combination, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Controls oil, minimizes pores, clears blemishes, brightens</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum (after toner) · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Mild flushing at >10% for very sensitive skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Cult Beauty, ASOS, The Ordinary website</div></div>
+      </div>
+      <div class="note">Do NOT mix with pure vitamin C — wait 10–15 min between applications.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">The Ordinary Hyaluronic Acid 2% + B5</div>
+      <div class="bcat">The Ordinary · Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$7</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Hyaluronic Acid 2% (3 molecular weights), Vitamin B5</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Dehydrated, All types</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Deep + surface hydration, plumps, reduces fine lines</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">May dehydrate in dry climates without moisturizer on top</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Cult Beauty, ASOS, The Ordinary website</div></div>
+      </div>
+      <div class="note">Apply to damp skin; follow immediately with moisturizer to seal in hydration.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">CeraVe Moisturizing Cream</div>
+      <div class="bcat">CeraVe · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.8 <span class="stars">★★★★½</span></div>
+        <div class="price">$17</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Ceramides 1/3/6-II, Hyaluronic Acid, MVE Technology</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Sensitive, Normal</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Barrier repair, long-lasting hydration, skin softening</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Petrolatum may feel heavy for oily skin in humid climates</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">450g · Drugstore, Chemist Warehouse, Amazon</div></div>
+      </div>
+      <div class="note">Fragrance-free; dermatologist recommended. Excellent final step.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">CeraVe Foaming Facial Cleanser</div>
+      <div class="bcat">CeraVe · Cleanser</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.6 <span class="stars">★★★★½</span></div>
+        <div class="price">$14</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Ceramides 1/3/6-II, Niacinamide, Hyaluronic Acid</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Oily, Combination</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Removes excess oil, gentle cleanse, non-drying</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Cleanser · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">May feel slightly drying for very dry skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">355ml · Drugstore, Amazon</div></div>
+      </div>
+      <div class="note">pH-balanced; maintains barrier while cleansing. Fragrance-free and non-comedogenic.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">La Roche-Posay Toleriane Double Repair</div>
+      <div class="bcat">La Roche-Posay · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.7 <span class="stars">★★★★½</span></div>
+        <div class="price">$22</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Ceramides, Niacinamide, Prebiotic Thermal Water</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Sensitive, Dry, Normal</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Barrier repair, 48hr hydration, soothes redness</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Very well tolerated; rare sensitivity to prebiotic component</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">75ml · Ulta, Target, LRP website</div></div>
+      </div>
+      <div class="note">Gentle enough for rosacea; non-comedogenic; favourite among dermatologists.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Paula's Choice 2% BHA Liquid Exfoliant</div>
+      <div class="bcat">Paula's Choice · Exfoliant</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.7 <span class="stars">★★★★½</span></div>
+        <div class="price">$34</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Salicylic Acid 2%, Green Tea Extract</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Combination, Acne-prone, Blackhead-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Unclogs pores, removes blackheads, smooths texture, reduces breakouts</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Exfoliant (after cleanse/toner) · 2–3x/week (build up)</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Do NOT use daily when starting; mild tingling normal</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">118ml · Sephora, Paula's Choice website</div></div>
+      </div>
+      <div class="note">Apply with cotton pad; do NOT rinse off; follow with serum + moisturizer; always SPF next AM. Benchmark BHA product.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">SkinCeuticals C E Ferulic</div>
+      <div class="bcat">SkinCeuticals · Vitamin C Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.8 <span class="stars">★★★★½</span></div>
+        <div class="price">$182</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">L-Ascorbic Acid 15%, Vitamin E 1%, Ferulic Acid 0.5%</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">All types; Mature, Dull skin</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Brightens, antioxidant protection, boosts collagen, fades dark spots</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum (AM only) · Every morning</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Tingling on sensitive skin; high price; refrigerate after opening</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Sephora, SkinCeuticals website, Dermstore</div></div>
+      </div>
+      <div class="note">Gold-standard vitamin C serum. Apply before moisturizer and SPF. Use within 3 months of opening.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Drunk Elephant T.L.C. Framboos Night Serum</div>
+      <div class="bcat">Drunk Elephant · AHA/BHA Blend Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$90</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Glycolic, Salicylic, Tartaric, Citric, Lactic Acids</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Oily, Combination, Mature</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Resurfaces, brightens, unclogs pores, reduces fine lines</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM only) · 2–3x/week</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Significant photosensitivity — PM only; SPF next AM mandatory</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Sephora, Drunk Elephant website</div></div>
+      </div>
+      <div class="note">Do NOT combine with retinol same night. Powerful multi-acid formula — start slowly.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">The Ordinary Retinol 0.5% in Squalane</div>
+      <div class="bcat">The Ordinary · Retinol</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.3 <span class="stars">★★★★</span></div>
+        <div class="price">$10</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Retinol 0.5%, Squalane</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Aging, Oily, Acne-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Cell turnover, anti-aging, fades dark spots, treats acne</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM only) · 2–3x/week initially; build to nightly</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Dryness, peeling, redness first 4–6 weeks; photosensitivity</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Cult Beauty, ASOS, The Ordinary website</div></div>
+      </div>
+      <div class="note">Sandwich technique for beginners (moisturizer before + after). Always SPF next AM. Best budget retinol.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Differin Adapalene Gel 0.1%</div>
+      <div class="bcat">Differin · Retinoid</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.6 <span class="stars">★★★★½</span></div>
+        <div class="price">$32</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Adapalene 0.1%</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Acne-prone, Oily</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Treats acne, prevents breakouts, reduces inflammation, mild anti-aging</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM only) · Nightly</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Purging phase 4–8 weeks; dryness, peeling; photosensitivity</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">45g · Drugstore, Amazon, Target</div></div>
+      </div>
+      <div class="note">Unique retinoid — anti-inflammatory; easier to tolerate than retinol for acne. OTC access in US.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Cetaphil Gentle Skin Cleanser</div>
+      <div class="bcat">Cetaphil · Cleanser</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.6 <span class="stars">★★★★½</span></div>
+        <div class="price">$14</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Glycerin, Niacinamide, Panthenol (Vitamin B5)</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Sensitive, Dry, All types</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Gentle cleanse, non-stripping, hydrating while cleansing</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Cleanser · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Slightly thick texture; can rinse or wipe off</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">591ml · Drugstore, Amazon</div></div>
+      </div>
+      <div class="note">Can be used with or without water. Fragrance-free. Suitable for eczema and post-procedure skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Neutrogena Hydro Boost Water Gel</div>
+      <div class="bcat">Neutrogena · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$22</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Hyaluronic Acid, Dimethicone, Glycerin</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Combination, Normal, Dehydrated</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Lightweight hydration, non-greasy, absorbs quickly</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">May not be enough for very dry skin in winter</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">48g · Drugstore, Amazon, Walmart</div></div>
+      </div>
+      <div class="note">Great base under SPF. Affordable drugstore benchmark for HA moisturizer.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">EltaMD UV Clear SPF 46</div>
+      <div class="bcat">EltaMD · Sunscreen</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.8 <span class="stars">★★★★½</span></div>
+        <div class="price">$40</div>
+        <span class="badge psafe">✓ Yes (mineral)</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Zinc Oxide 9%, Octinoxate 7.5%, Niacinamide</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Acne-prone, Sensitive, Rosacea</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">UV protection, calms redness, oil-control, non-comedogenic</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">SPF (final AM step) · Every morning, reapply every 2 hrs</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Contains octinoxate (chemical); mineral-chemical hybrid</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">48g · Amazon, Dermstore, EltaMD website</div></div>
+      </div>
+      <div class="note">Cult favourite among dermatologists. Great for acne-prone skin. Invisible finish.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">COSRX Advanced Snail 96 Mucin Essence</div>
+      <div class="bcat">COSRX · Essence</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.7 <span class="stars">★★★★½</span></div>
+        <div class="price">$25</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Snail Secretion Filtrate 96%, Sodium Hyaluronate, Allantoin</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">All types; Acne-prone, Dry, Scarring</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Hydrates, repairs, fades acne scars, anti-aging, soothes</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Essence (after toner) · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Very well tolerated; slightly sticky texture initially</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">100ml · Amazon, Soko Glam, YesStyle</div></div>
+      </div>
+      <div class="note">Excellent for post-acne healing. Lightweight and compatible with any moisturizer.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">COSRX Acne Pimple Master Patch</div>
+      <div class="bcat">COSRX · Spot Treatment</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.8 <span class="stars">★★★★½</span></div>
+        <div class="price">$11</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Hydrocolloid</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Acne-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Absorbs pus from whiteheads overnight, protects blemish from picking</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Spot treatment (overnight) · As needed</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Doesn't work on cystic or blind pimples</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">24 patches · Amazon, YesStyle, COSRX website</div></div>
+      </div>
+      <div class="note">Apply on popped or whitehead blemishes. Transparent — can wear under makeup. Game changer for picking habits.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Sunday Riley Good Genes Lactic Acid</div>
+      <div class="bcat">Sunday Riley · AHA Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.6 <span class="stars">★★★★½</span></div>
+        <div class="price">$85</div>
+        <span class="badge pconsult">⚠ Consult</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Lactic Acid, Licorice Root Extract, Lemongrass</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Dry, Sensitive, Mature</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Resurfacing, brightening, smoothing, hydrating</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM) · 2–3x/week</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Mild tingling; photosensitivity; use SPF next AM</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Sephora, Sunday Riley website</div></div>
+      </div>
+      <div class="note">More hydrating than glycolic acid. Great for beginners to AHAs. Also works AM with SPF.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Isntree Hyaluronic Acid Toner</div>
+      <div class="bcat">Isntree · Toner</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.7 <span class="stars">★★★★½</span></div>
+        <div class="price">$22</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Hyaluronic Acid (8 types), Centella Asiatica, Betaine</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Dehydrated, Sensitive, All</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Multi-level hydration, calming, skin prep</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Toner (after cleanse) · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Very well tolerated</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">200ml · Amazon, YesStyle, Soko Glam</div></div>
+      </div>
+      <div class="note">Apply by hand-patting for best absorption. Korean skincare cult product for first-step hydration.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Aquaphor Healing Ointment</div>
+      <div class="bcat">Beiersdorf (Aquaphor) · Occlusive / Healing</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.8 <span class="stars">★★★★½</span></div>
+        <div class="price">$14</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Petrolatum 41%, Mineral Oil, Ceresin, Glycerin</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Sensitive, Cracked skin, Post-procedure</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Seals in moisture, heals cracked/chapped skin, barrier protection</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Final occlusive step · Nightly / as needed</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Heavy for daily face use; lanolin allergy possible; avoid on acne-prone skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">99g · Drugstore, Amazon</div></div>
+      </div>
+      <div class="note">Holy grail for dry skin. Used as slug (final occlusive layer in skin cycling). Avoid on acne-prone skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Tatcha The Water Cream</div>
+      <div class="bcat">Tatcha · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$72</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Japanese Wild Rose, Hadasei-3, Niacinamide, Algae</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Combination</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Oil-free, pore-minimizing, lightweight, mattifying hydration</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Expensive; contains fragrance</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">50ml · Sephora, Tatcha website</div></div>
+      </div>
+      <div class="note">Iconic luxury skincare. Water gel texture. Great for oily skin in hot/humid climates.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">La Roche-Posay Effaclar Duo</div>
+      <div class="bcat">La Roche-Posay · Spot Treatment</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$30</div>
+        <span class="badge pconsult">⚠ Consult</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Benzoyl Peroxide 5.5%, LHA, Niacinamide</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Acne-prone, Oily</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Targets active breakouts, unclogs pores, reduces PIH</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Spot treatment · Daily (affected areas)</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Bleaches fabrics; drying if overused; avoid with retinol</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">40ml · Ulta, LRP website, Amazon</div></div>
+      </div>
+      <div class="note">Apply only on blemishes initially. Fragrance-free. Niacinamide helps calm post-acne marks.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Olay Regenerist Micro-Sculpting Cream</div>
+      <div class="bcat">Olay · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$25</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Niacinamide, Amino-Peptide Complex II, Hyaluronic Acid</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Dry, Mature</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Anti-aging, hydration, firms skin, reduces fine lines</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Contains fragrance</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">50g · Drugstore, Amazon, Walmart</div></div>
+      </div>
+      <div class="note">Budget-friendly anti-aging moisturizer. Consistently ranks against luxury alternatives in independent studies.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">COSRX Low pH Good Morning Gel Cleanser</div>
+      <div class="bcat">COSRX · Cleanser</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$12</div>
+        <span class="badge pconsult">⚠ Consult</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Tea Tree Leaf Water, Betaine Salicylate (BHA)</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Acne-prone, Combination</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Gentle low pH cleanse, removes impurities, primes skin for actives</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Cleanser · Morning (PM optional)</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Not for very dry or sensitive skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">150ml · Amazon, YesStyle, Soko Glam</div></div>
+      </div>
+      <div class="note">Low pH preserves acid mantle and primes skin for BHA/AHA actives. Cult Korean skincare cleanser.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">The Ordinary Alpha Arbutin 2% + HA</div>
+      <div class="bcat">The Ordinary · Brightening Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.4 <span class="stars">★★★★</span></div>
+        <div class="price">$10</div>
+        <span class="badge pconsult">⚠ Consult</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Alpha Arbutin 2%, Hyaluronic Acid</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">All types; especially Hyperpigmentation-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Fades dark spots, brightens, hydrates</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Very well tolerated; results take 4–8 weeks</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Cult Beauty, ASOS, The Ordinary website</div></div>
+      </div>
+      <div class="note">Pair with vitamin C for enhanced brightening. Affordable alternative to higher-end brightening serums.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">First Aid Beauty Ultra Repair Cream</div>
+      <div class="bcat">First Aid Beauty · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.7 <span class="stars">★★★★½</span></div>
+        <div class="price">$38</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Colloidal Oatmeal, Shea Butter, Ceramides, Allantoin</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Sensitive, Eczema-prone</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Intensive repair, calms redness and itching, barrier restoration</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Thick texture; may be too heavy for oily skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">170g · Ulta, Sephora, FAB website</div></div>
+      </div>
+      <div class="note">Oat-based formulation certified for eczema. Fragrance-free. Loved for compromised and reactive skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Glow Recipe Watermelon Niacinamide Dew Drops</div>
+      <div class="bcat">Glow Recipe · Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.4 <span class="stars">★★★★</span></div>
+        <div class="price">$42</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Niacinamide 3%, Hyaluronic Acid, Watermelon Extract</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dull, Dehydrated, Normal, Combination</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Brightens, hydrates, adds dewy glow, mild pore-minimizing</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Light fragrance; lower niacinamide % than clinical serums</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">40ml · Sephora, Glow Recipe website</div></div>
+      </div>
+      <div class="note">More cosmetically elegant than clinical serums. Great for dry-combo skin seeking a natural glow finish.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Murad Retinol Youth Renewal Serum</div>
+      <div class="bcat">Murad · Retinol Serum</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$102</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Retinol, Retinyl Propionate, HPR (Hydroxypinacolone Retinoate)</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Mature, Dry, Normal</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Advanced anti-aging, reduces deep wrinkles, firms skin</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM only) · 2–4x/week (build up)</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Retinoid precautions: sun sensitivity, peeling</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Sephora, Murad website, Ulta</div></div>
+      </div>
+      <div class="note">3-retinoid system for high efficacy with reduced irritation. Premium price point.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Biossance Squalane + Vitamin C Rose Oil</div>
+      <div class="bcat">Biossance · Facial Oil</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.4 <span class="stars">★★★★</span></div>
+        <div class="price">$72</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Squalane, Ethyl Ascorbic Acid (Vitamin C), Rosehip Oil</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Mature, Dull</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Brightening, anti-aging, deep nourishment, radiance</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Facial Oil (before moisturizer) · PM or AM with SPF</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Rosehip oil may trigger acne in prone skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · Sephora, Biossance website</div></div>
+      </div>
+      <div class="note">Stable vitamin C derivative (ethyl ascorbic acid). Non-greasy squalane base. Clean beauty positioning.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">COSRX Salicylic Acid Daily Gentle Cleanser</div>
+      <div class="bcat">COSRX · Cleanser</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.4 <span class="stars">★★★★</span></div>
+        <div class="price">$14</div>
+        <span class="badge pconsult">⚠ Consult</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Salicylic Acid 0.5%, White Willow Bark Extract</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Oily, Acne-prone, Combination</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Unclogs pores, removes excess oil, gentle daily acne cleanser</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Cleanser · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Mild; avoid if very dry skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">150ml · Amazon, YesStyle, COSRX website</div></div>
+      </div>
+      <div class="note">Rinse-off format — lower risk than leave-on BHA. Good starter BHA product for acne-prone beginners.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">The INKEY List Retinol Serum</div>
+      <div class="bcat">The INKEY List · Retinol</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.3 <span class="stars">★★★★</span></div>
+        <div class="price">$11</div>
+        <span class="badge pavoid">✗ Avoid in Pregnancy</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Retinol 1%, Retinyl Propionate 0.5%, Squalane</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Aging, Oily</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Reduces fine lines, cell turnover, anti-aging</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Treatment (PM only) · 2–3x/week (build up)</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Possible dryness/peeling; start slowly</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">30ml · ASOS, Sephora, INKEY List website</div></div>
+      </div>
+      <div class="note">Affordable retinol with precursor retinyl propionate for gentler onboarding. Good budget alternative.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Glossier Futuredew</div>
+      <div class="bcat">Glossier · Serum-Oil</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.3 <span class="stars">★★★★</span></div>
+        <div class="price">$38</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Rosehip Seed Oil, Sea Buckthorn Oil, Squalane, Vitamin E</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Normal, Dry, Dull</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Dewy glow, lightweight oil, radiance boost</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Serum-Oil (before moisturizer) · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Rosehip oil comedogenic risk for acne-prone skin</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">25ml · Glossier website</div></div>
+      </div>
+      <div class="note">Mix with moisturizer or use alone for glassy skin look. Not recommended for acne-prone skin.</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="bleft">
+      <div class="bname">Cetaphil Moisturizing Lotion</div>
+      <div class="bcat">Cetaphil · Moisturizer</div>
+      <div class="badges" style="margin-top:12px">
+        <div class="rating-num">4.5 <span class="stars">★★★★½</span></div>
+        <div class="price">$13</div>
+        <span class="badge psafe">✓ Yes</span>
+      </div>
+    </div>
+    <div class="bright">
+      <div class="grid2">
+        <div class="field"><div class="flabel">Key Ingredients</div><div class="fval">Glycerin, Petrolatum, Dimethicone</div></div>
+        <div class="field"><div class="flabel">Skin Type</div><div class="fval">Dry, Sensitive, Normal, All</div></div>
+        <div class="field"><div class="flabel">Benefits</div><div class="fval">Lightweight all-body moisturizer, non-greasy, restores barrier</div></div>
+        <div class="field"><div class="flabel">Routine Step &amp; Frequency</div><div class="fval">Moisturizer · AM + PM</div></div>
+        <div class="field"><div class="flabel">Cautions</div><div class="fval red">Light fragrance in some versions</div></div>
+        <div class="field"><div class="flabel">Size / Where to Buy</div><div class="fval muted">473ml · Drugstore, Amazon</div></div>
+      </div>
+      <div class="note">Body + face use. Dermatologist recommended. Affordable and widely available globally.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="flabel2">Cosmetics Ingredient Expert · Knowledge Base</div>
+    <div class="flabel2" style="margin-top:4px">26 Ingredients · 31 Products · All data on single page</div>
+  </div>
+  <div class="ftitle">Skincare Intelligence Reference</div>
+</footer>
+
+</body>
+</html>
